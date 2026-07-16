@@ -11,15 +11,14 @@ pipeline {
     stages {
         stage ("Build") {
             steps {
-                script {
-                    sh """
-                        echo "Building"
-                        echo "$course:
-                        env
-                    """
-                }
+                sh """
+                    echo "Building"
+                    echo "$course"
+                    env
+                """
             }
         }
+    }
         stage('Test') {
             steps {
                 script{
@@ -29,5 +28,4 @@ pipeline {
                 }
             }
         }
-    }
 }
