@@ -1,0 +1,33 @@
+pipeline {
+    agent {
+        node{
+            label 'agent-1'
+        }
+    }
+    environment {
+        course = "Jenkins"
+    }
+}
+
+stages {
+    stage ("Build") {
+        steps {
+            script {
+                sh """
+                    echo "Building"
+                    echo "$course:
+                    env
+                """
+            }
+        }
+    }
+    stage('Test') {
+        steps {
+            script{
+                sh """
+                    echo "Building"
+                """
+            }
+        }
+    }
+}
